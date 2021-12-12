@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-title>{{distancia}} </ion-title> -->
+     <h6 align ="center">Calcular servicio: {{descripcion}} </h6>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div [ngSwitch]="tipo">
+
+  <ion-grid>
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+      <form [formGroup]="formgroup" (ngSubmit)="onSubmit(formgroup.value)">
+       <ion-card *ngSwitchCase="1">
+        <ion-row>
+          <ion-col size='4'> 
+            <ion-item>
+              <ion-label position="floating"><h6>Largo Cms:</h6></ion-label>
+              <ion-input formControlName="largo"></ion-input>
+            </ion-item>
+            <div *ngIf="submitted && frm.largo.errors" class="invalid-feedback">
+              <ion-item *ngIf="frm.largo.errors.required">
+                  <p style="color:red">El largo es requerido!</p>
+              </ion-item>
+              <ion-item *ngIf="frm.largo.errors.minlength">
+                  <p style="color:red">El largo es requerido!</p>
+              </ion-item>
+            </div>
+          </ion-col>
+          <ion-col size='4'>
+            <ion-item>
+              <ion-label position="floating"><h6>Ancho Cms:</h6></ion-label>
+              <ion-input formControlName="ancho"></ion-input>
+            </ion-item>
+            <div *ngIf="submitted && frm.ancho.errors" class="invalid-feedback">
+              <ion-item *ngIf="frm.ancho.errors.required">
+                  <p style="color:red">El Ancho es requerido!</p>
+              </ion-item>
+              <ion-item *ngIf="frm.ancho.errors.minlength">
+                  <p style="color:red">El Ancho es requerido!</p>
+              </ion-item>
+            </div>
+
+          </ion-col>
+          <ion-col size='4'>
+            <ion-item>
+              <ion-label position="floating"><h6>Alto Cms:</h6></ion-label>
+              <ion-input formControlName="alto"></ion-input>
+            </ion-item>
+            <div *ngIf="submitted && frm.alto.errors" class="invalid-feedback">
+              <ion-item *ngIf="frm.alto.errors.required">
+                  <p style="color:red">El Alto es requerido!</p>
+              </ion-item>
+              <ion-item *ngIf="frm.alto.errors.minlength">
+                  <p style="color:red">El Alto es requerido!</p>
+              </ion-item>
+            </div>
+          </ion-col>
+        </ion-row>
+
+          <!-- **************************************************************-->
+
+          <ion-row>
+            <ion-col size='4'> 
+              <ion-item>
+                <ion-label position="floating"><h6>Peso Kg:</h6></ion-label>
+                <ion-input formControlName="peso"></ion-input>
+              </ion-item>
+              <div *ngIf="submitted && frm.peso.errors" class="invalid-feedback">
+                <ion-item *ngIf="frm.peso.errors.required">
+                    <p style="color:red">El Peso es requerido!</p>
+                </ion-item>
+                <ion-item *ngIf="frm.peso.errors.minlength">
+                    <p style="color:red">El Peso es requerido!</p>
+                </ion-item>
+              </div>
+            </ion-col>
+            <ion-col size='4'>
+              <ion-item>
+                <ion-label position="floating"><h6>Cantidad:</h6></ion-label>
+                <ion-input formControlName="cantidad"></ion-input>
+              </ion-item>
+              <div *ngIf="submitted && frm.cantidad.errors" class="invalid-feedback">
+                <ion-item *ngIf="frm.cantidad.errors.required">
+                    <p style="color:red">La Cantidad es requerida!</p>
+                </ion-item>
+                <ion-item *ngIf="frm.cantidad.errors.minlength">
+                    <p style="color:red">La Cantidad es requerida!</p>
+                </ion-item>
+              </div>
+  
+            </ion-col>
+            
+          </ion-row>
+       </ion-card>
+       <div *ngSwitchCase="2"> SERGIO TOBON</div>
+          <ion-row *ngSwitchCaseDefault></ion-row>
+          <ng-template #nottipo>
+            Please friend, login.
+          </ng-template>
+        <ion-col>
+          <ion-button size="large" type="submit"  expand="block" [disabled]="!formgroup.valid">Ingresar</ion-button>   
+        </ion-col>
+      </form>
+    </ion-col>
+  </ion-grid>
+</div>
+</ion-content>

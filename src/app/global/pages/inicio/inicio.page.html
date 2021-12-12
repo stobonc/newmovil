@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-grid>
+    <ion-row >   
+      <ion-card class="card-background" (click)="servicios()">
+      <ion-img width= "100%" max-width="100px" heigth="auto"src="https://img.atrisoluciones.com.co/img/CrearServicio.png"></ion-img>
+    </ion-card>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row >
+      <ion-card class="card-background" [routerLink]="['/tabs-truck-services/truckservices']">
+      <ion-img width= "100%" max-width="100px" heigth="auto" src="https://img.atrisoluciones.com.co/img/ServiciosDisponibles.png"></ion-img>
+    </ion-card>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>

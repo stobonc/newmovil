@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/inicio" (click)="ngOnDestroy"></ion-back-button><font size="1px">Atras</font>
+      </ion-buttons>
+      <ion-title><font size="4px">Solicitudes Pendientes</font></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+<form>
+  <ion-list> 
+    <div *ngFor="let data of dataServicios; let i=index">        
+     <div *ngIf="data.estatus==0">
+       <ion-card>
+        <ion-badge>{{i+1}}</ion-badge>
+         <ion-item>
+             <ion-label class="ion-text-wrap">    
+               <p><strong><font size="2px" color="Black">Origen:</font></strong><font size="2px">{{data.origenServ}}</font></p>
+               <hr align="center" color="primary" size="3" width="80%" />
+               <p><strong><font size="2px" color="Black">Destino:</font></strong><font size="2px">{{data.destinoServ}}</font></p>  
+               <ion-label>Serv A: {{data.distancia}} km</ion-label>
+             </ion-label> 
+             <ion-chip>
+               <ion-avatar>
+                 <img src="https://img.atrisoluciones.com.co/img/BotonAceptar.png">
+               </ion-avatar>
+               <ion-label (click)="Ir_a(data)" color="primary"><font size="px">Aceptar</font></ion-label>
+             </ion-chip>
+       </ion-item>
+       
+     </ion-card> 
+     </div>
+    </div>
+   </ion-list>
+  </form>
+    </ion-content>

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/inicio" (click)="ngOnDestroy"></ion-back-button><font size="1px">Atras</font>
+    </ion-buttons>
+    <ion-title><font size="4px">Crear Servicios</font></ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content> 
+ 
+     <ion-searchbar disabled="true" cancel-button-icon='md-arrow-back' [(ngModel)]="searchOrigen" (click)="searchDirOrigen()"Placeholder="Dirección Origen" value={{origenServ}}></ion-searchbar>
+     <ion-searchbar cancel-button-icon='md-arrow-back' [(ngModel)]="searchDestino" (click)="searchDirDestino()"Placeholder="Dirección Destino" value={{destinoServ}} ></ion-searchbar>
+ 
+  
+    <ion-button shape="round" color="secondary" size="small" type="submit" (click)='irA_Solicitud()' expand="block" >Ingresar Solicitud</ion-button>
+ 
+  </ion-content>
+ 
+  <ion-fab horizontal="start" vertical="bottom" slot="fixed">
+    <ion-fab-button (click)="ubicacionInicial()" color="secondary">
+    <ion-icon name="locate"></ion-icon>
+   </ion-fab-button>
+   </ion-fab>
+    <google-map [mapOptions]="mapOptions"></google-map>

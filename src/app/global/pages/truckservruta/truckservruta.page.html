@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/inicio" (click)="ngOnDestroy"></ion-back-button><font size="1px">Atras</font>
+    </ion-buttons>
+    <ion-title><font size="4px">Solicitudes en ruta</font></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <ion-list> 
+     <div *ngFor="let data of dataServicios;  let i =index">        
+      <div *ngIf="data.estatus==1">
+        <ion-card>
+          <ion-badge>{{i+1}}</ion-badge>
+          <ion-item>
+              <ion-label class="ion-text-wrap">    
+                <p><strong><font size="2px" color="Black">Origen:</font></strong><font size="2px">{{data.origenServ}}</font></p>
+                <hr align="center" color="primary" size="3" width="80%" />
+                <p><strong><font size="2px" color="Black">Destino:</font></strong><font size="2px">{{data.destinoServ}}</font></p>     
+              </ion-label> 
+              <ion-chip>
+                <ion-avatar>
+                  <img src="https://img.atrisoluciones.com.co/img/CellPoint.jpg">
+                </ion-avatar>
+                <ion-label color="primary" (click)="entregarRuta(data)"><font size="px">Entregar</font></ion-label>
+              </ion-chip>
+        </ion-item>
+      </ion-card> 
+      </div>
+     </div>
+    </ion-list>
+  </ion-content>

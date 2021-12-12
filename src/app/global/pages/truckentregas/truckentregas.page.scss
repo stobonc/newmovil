@@ -1,0 +1,37 @@
+google-map {
+    display: block;
+    width: 100%;
+    height: 42%;
+  }
+
+  
+.h6 {
+  color:black;
+  font-size: 10px;
+}
+.h5 {
+  color:#202020;
+  font-size: 10px;
+}
+p.clasificacion {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+p.clasificacion input {
+  position: absolute;
+  top: -100px;
+}
+
+p.clasificacion label {
+  float: right;
+  color:rgba(159, 159, 247, 0.788);
+  font-size: 35px; 
+}
+
+p.clasificacion label:hover,
+p.clasificacion label:hover ~ label,
+p.clasificacion input:checked ~ label {
+  color:blue;
+}

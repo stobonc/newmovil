@@ -1,0 +1,41 @@
+.card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+      display: block;
+margin-left: auto;
+margin-right: auto;
+     
+    }
+  
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+  
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+    .card-background{
+        background: #afe0f371;
+    }
+    
+  }
+  .centrado{
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+  .responsive {
+    max-width: 100%;
+    height: auto;
+  }

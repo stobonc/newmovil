@@ -1,0 +1,187 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button  defaultHref="/maps" (click)="ngDestroy()"></ion-back-button><font size="1px">Atras</font>
+      </ion-buttons>
+      <ion-title>
+       Crear Solicitud
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+  <form [formGroup]="formgroup" (ngSubmit)="onSubmit()"> 
+    
+      <ion-card color="light">
+        <font size="1px">
+        <ion-card-subtitle>* Origen del Servicio</ion-card-subtitle>
+        <ion-card-content> {{recibirDatosOrigen}} </ion-card-content>
+          <ion-card-subtitle>* Destino del Servicio</ion-card-subtitle>
+          <ion-card-content>{{recibirDatosDestino}}</ion-card-content>
+        </font> 
+      </ion-card>
+   
+    
+    <ion-item><font size="2px">{{distServ}} de distancia</font></ion-item>
+  
+     <ion-item> 
+      <ion-row>
+        <ion-col>
+        <ion-button shape="round" color="secondary" size="small" type="submit" (click)='presentAlertRadioTipo()' expand="block" >Tipo Servicio</ion-button><p></p>
+      </ion-col>
+      <ion-col>
+     <!-- <ion-chip>
+      <ion-avatar>
+       <img src="https://cdn1.imggmi.com/uploads/2019/10/12/0376074a779cf4595019b285a87f8102-full.png">
+      </ion-avatar>
+      <ion-label  (click)="takePicture()">Tomar Foto</ion-label>
+    </ion-chip>-->
+        <ion-button  shape="round" color="secondary" size="small" (click)="alertRadioTipoFoto()">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          <ion-label><font size="2px">Tomar Foto</font></ion-label>
+        </ion-button>
+       <input type="file" *ngIf="isDesktop" #filePicker (change)="onFileChoose($event)"/>
+  
+
+      </ion-col>
+      </ion-row>
+      <!--***************************************************************************-->
+     
+      
+      <!--************************************************************************-->
+    </ion-item>
+     <!--************************************************************************************-->
+    <div [ngSwitch]="tipo">
+    <div style="justify-content: center;" *ngSwitchCase="'1'">
+      <ion-label position="floating" color="primary"><font size="1px">Descripción del servicio:</font></ion-label>
+      <ion-grid >
+        <ion-item>
+        <ion-row>
+          <ion-col  size="auto">
+            <font color="#6D6E6E" size="2px">Largo: </font><font color="black" size="2px">{{largo}}-Cms</font>
+          </ion-col>
+          <ion-col  size="auto">
+            <font color="#6D6E6E" size="2px">Ancho:</font><font color="black" size="2px">{{ancho}}-Cms</font>
+          </ion-col>
+          <ion-col  size="auto">
+            <font color="#6D6E6E" size="2px">Alto:</font><font color="black" size="2px">{{alto}}-Cms</font>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col  size="auto">
+            <font color="#6D6E6E" size="2px">Peso:</font><font color="black" size="2px">{{peso}}- kg</font>
+          </ion-col>
+          <ion-col  size="auto">
+            <font color="#6D6E6E" size="2px">Cant:</font><font color="black" size="2px">{{cantidad}} - Cajas</font>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+      </ion-grid>
+      <ion-item>
+        <ion-label position="floating">Valor Declarado:$</ion-label>
+        <ion-input autofocus="true" type="number"formControlName="valorDeclarado"></ion-input>
+       <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.valorDeclarado">
+        <div  class="error-message" *ngIf="formgroup.get('valorDeclarado').hasError(validation.type) && (formgroup.get('valorDeclarado').dirty || formgroup.get('valorDeclarado').touched)">  
+          <span> <font size="2px"> {{validation.message}}</font></span>
+        </div>
+        </ng-container>
+       </div>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Detalle:</ion-label>
+        <ion-textarea rows="1" cols="5" font-size="2px"  formControlName="descripcionServ"></ion-textarea>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.descripcionServ">
+        <div  class="error-message" *ngIf="formgroup.get('descripcionServ').hasError(validation.type) && (formgroup.get('descripcionServ').dirty || formgroup.get('descripcionServ').touched)">  
+          <span> <font size="2px"> {{validation.message}}</font></span>
+        </div>
+        </ng-container>
+       </div>
+
+      <ion-button    size="default" type="submit"  expand="block" [disabled]="!formgroup.valid">Ingresar Solicitud</ion-button>
+     
+    </div>
+
+ <!--************************************************************************************-->
+
+ <div style="justify-content: center;" *ngSwitchCase="'2'">
+  <ion-label position="floating" color="primary">Descripción del servicio:</ion-label>
+  <ion-grid >
+    <ion-item>
+    <ion-row>
+      <ion-col  size="auto">
+        <font color="#6D6E6E" size="2px">Cantidad: </font><font color="black" size="2px">{{cantidad}}</font>
+      </ion-col>
+      <ion-col  size="auto">
+        <font color="#6D6E6E" size="2px">Peso:</font><font color="black" size="2px">{{peso}}-Kg</font>
+      </ion-col>
+    </ion-row>
+    </ion-item>
+  </ion-grid>
+    <ion-item>
+     <ion-label position="floating">Valor Declarado:$</ion-label>
+      <ion-input autofocus="true" type="number"formControlName="valorDeclarado"></ion-input>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validation_messages.valorDeclarado">
+        <div  class="error-message" *ngIf="formgroup.get('valorDeclarado').hasError(validation.type) && (formgroup.get('valorDeclarado').dirty || formgroup.get('valorDeclarado').touched)">  
+          <span> <font size="2px"> {{validation.message}}</font></span>
+        </div>
+      </ng-container>
+    </div>
+   </ion-item>
+    <ion-item>
+      <ion-label position="floating">Detalle:</ion-label>
+      <ion-textarea rows="1" cols="5" font-size="2px"  formControlName="descripcionServ"></ion-textarea>
+     </ion-item>
+    <div class="error-container">
+      <ng-container *ngFor="let validation of validation_messages.descripcionServ">
+          <div  class="error-message" *ngIf="formgroup.get('descripcionServ').hasError(validation.type) && (formgroup.get('descripcionServ').dirty || formgroup.get('descripcionServ').touched)">  
+            <span> <font size="2px"> {{validation.message}}</font></span>
+           </div>
+        </ng-container>
+   </div>
+
+    <ion-button    size="default" type="submit"  expand="block" [disabled]="!formgroup.valid">Ingresar Solicitud</ion-button>
+ 
+  </div>
+    <!--************************************************************************************-->
+    <div style="justify-content: center;" *ngSwitchCase="'3'">
+      
+        <div>Descripción del Servicio:</div><p></p>
+        <ion-item>
+          <ion-label position="floating">Valor Declarado:$</ion-label>
+           <ion-input autofocus="true" type="number"formControlName="valorDeclarado"></ion-input>
+         <div class="error-container">
+           <ng-container *ngFor="let validation of validation_messages.valorDeclarado">
+             <div  class="error-message" *ngIf="formgroup.get('valorDeclarado').hasError(validation.type) && (formgroup.get('valorDeclarado').dirty || formgroup.get('valorDeclarado').touched)">  
+               <span> <font size="2px"> {{validation.message}}</font></span>
+             </div>
+           </ng-container>
+         </div>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Detalle:</ion-label>
+          <ion-textarea rows="1" cols="5" font-size="2px"  formControlName="descripcionServ"></ion-textarea>
+         </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.descripcionServ">
+              <div  class="error-message" *ngIf="formgroup.get('descripcionServ').hasError(validation.type) && (formgroup.get('descripcionServ').dirty || formgroup.get('descripcionServ').touched)">  
+                <span> <font size="2px"> {{validation.message}}</font></span>
+               </div>
+            </ng-container>
+       </div>
+       <ion-button    size="default" type="submit"  expand="block" [disabled]="!formgroup.valid">Ingresar Solicitud</ion-button>
+      </div>
+     <!--************************************************************************************-->
+    <div style="justify-content: center;" *ngSwitchDefault></div>
+ </div>
+ 
+ <ion-card *ngIf="photo">
+  <ion-card-content>
+    <img [src]="photo">
+  </ion-card-content>
+</ion-card>
+</form>
+</ion-content>

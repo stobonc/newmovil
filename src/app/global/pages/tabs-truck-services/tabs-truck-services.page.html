@@ -1,0 +1,22 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button tab="truckservices">
+      <ion-icon name="paper"></ion-icon>
+      <ion-label> <font color="white">Servicios Pendientes:</font></ion-label>
+      <ion-badge><font size="2px">{{pendientes}}</font></ion-badge>
+    </ion-tab-button>
+
+    
+      <ion-tab-button tab="truckservruta">
+        <ion-icon name="pin"></ion-icon>
+        <ion-label> <font color="white">Servicios en Ruta:</font></ion-label>
+        <ion-badge><font size="2px">{{enRuta}}</font></ion-badge>
+      </ion-tab-button>
+
+    <ion-tab-button tab="speakers">
+      <ion-icon name="analytics"></ion-icon>
+      <ion-label><font color="white">Historial:</font></ion-label>
+      <ion-badge>20</ion-badge>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

@@ -1,0 +1,15 @@
+{
+  "appId": "com.ionicthemes.AppAtris",
+  "appName": "AppAtris",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    
+    }
+  }
+ 
+
+}

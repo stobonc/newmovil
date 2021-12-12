@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/truckservices" (click)="ngOnDestroy"></ion-back-button><font size="1px">Atras</font>
+    </ion-buttons>
+    <ion-title><font size="4px">Detalle servicio</font></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <google-map [mapOptions]="mapOptions"></google-map>
+  <ion-fab vertical="center" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="geolocateMe()" color="secondary">
+      <ion-icon name="locate"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-content>
+    <ion-card>
+    <ion-item>
+      
+      <ion-label class="ion-text-wrap">    
+        <p><strong><font size="2px" color="Black">Origen:</font></strong><font size="2px">{{data.origenServ}}</font></p>
+       
+        <p><strong><font size="2px" color="Black">Destino:</font></strong><font size="2px">{{data.destinoServ}}</font></p>  
+        <ion-label><font size="2px" color="Black">Serv A: {{data.distancia}} km</font></ion-label>
+      </ion-label> 
+   
+  </ion-item>
+</ion-card>
+        <ion-item>
+        <ion-row>
+          <ion-col  size="auto">
+            <font color="#dfdfdf" size="1px"></font><font size="1px">{{data.medidas}}</font>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+  <ion-item><font size="2px" color="secondary">Observ:</font><font size="2px" color="#9f9f9f">{{data.descripcionServ}}</font></ion-item>
+  
+ 
+  <ion-col class="colorRow"><ion-button  color="secondary" size="small"  (click)="aceptarSolicitud()">Aceptar</ion-button></ion-col>
+         <!-- <ion-col class="colorRow"><ion-button color="secondary" size="small" [routerLink]="['/inicio']">Regresar</ion-button></ion-col>-->
+         <ion-card>
+          <ion-card-content>
+            <img [src]="">
+
+          </ion-card-content>
+        </ion-card>
+  </ion-content>
